@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <Button onclick="sortAlph()">Sort Alphabet</Button>
+        <button onclick="sortNum()">Sort Numeric</button>
+
+        <h1 id="demo"></h1>
+
+        <h2 id="alpha"></h2>
+    </div>
+    <h1>hoho</h1>
+<script>
+        const point = [100,1,2,7,5,90];
+        const alph = ["b","s","f","z"];
+        document.getElementById("demo").innerHTML = point;
+        document.getElementById("alpha").innerHTML = alph;
+
+        function sortAlph(){
+            alph.sort();
+            document.getElementById("alpha").innerHTML = alph;
+        }
+
+        function sortNum(){
+            point.sort(() => Math.random() - 0.5)
+            // point.sort(function(a,b){return a-b });
+            document.getElementById("demo").innerHTML = point;
+        }
+
+
+</script>
+<script src="./index.js"></script>
+</body>
+</html>

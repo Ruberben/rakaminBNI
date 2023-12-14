@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Financial Calculator</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 20px;
+                background-color: #f5f5f5;
+            }
+    
+            .container {
+                background-color: rgba(255, 255, 255, 0.9);
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                padding: 20px;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+    
+            h1 {
+                border-top: 1px solid #ccc;
+                border-bottom: 1px solid #ccc;
+                padding: 10px 0;
+                background-color: #e0e0e0;
+                color: #333;
+                margin-top: 0;
+                border-radius: 8px 8px 0 0;
+            }
+    
+            button {
+                padding: 10px;
+                font-size: 16px;
+                cursor: pointer;
+                background-color: #4caf50;
+                color: #fff;
+                border: none;
+                border-radius: 4px;
+            }
+    
+            b {
+                display: block;
+                margin: 10px auto;
+                padding: 10px;
+                background-color: rgba(224, 224, 224, 0.7);
+                color: #333;
+                border-radius: 4px;
+            }
+        </style>
+    </head>
+    <body>
+    
+        <div class="container">
+            <h1>Financial Calculator</h1>
+            
+            <b id="tb1"></b>
+            <b id="tb2"></b>
+            <b id="tb3"></b>
+            <b id="tb4"></b>
+            <b id="tb5"></b>
+            
+            <button onclick="calculate()">Calculate</button>
+        </div>
+      
+        <div class="container">
+            <h1>Salary Calculator</h1>
+            
+            <b id="tb6"></b>
+            <b id="tb7"></b>
+            <b id="tb8"></b>
+            <b id="tb9"></b>
+           
+            <button onclick="calculateSalary()">Calculate Salary</button>
+        </div>
+    
+
+
+    <script>
+        function calculate(){
+        let initialSavings = 0;
+        let annualInterestRate = 0.0;
+        let savingPeriod =0;
+        let totalSaving = 0;
+
+        initialSavings = parseFloat(prompt("masukan jumlah tabungan awal: "));
+        annualInterestRate = parseFloat(prompt("masukan tingkat bunga tahuan (%): "));
+        savingPeriod = parseInt(prompt("masukan periode simpanan dalam tahun: "));
+
+        let interest = (initialSavings * annualInterestRate * savingPeriod)/ 100 ;
+
+        totalSaving = initialSavings + interest;
+
+        document.getElementById("tb1").innerHTML ="Jumlah tabungan awal: $" + initialSavings.toFixed(2);
+        document.getElementById("tb2").innerHTML ="Tingkat Bunga Tahunan: " + annualInterestRate + "%";
+        document.getElementById("tb3").innerHTML ="Periode Simpanan: " + savingPeriod + " Tahun";
+        document.getElementById("tb4").innerHTML ="Bunga yang diperoleh: $" + interest ;
+        document.getElementById("tb5").innerHTML ="Total Tabungan Akhir: $" + totalSaving.toFixed(2);
+
+
+        }
+
+        function calculateSalary(){
+            let basicSalary = parseFloat(prompt("Masukan Gaji Dasar Karyawan : $"));
+            let bonus = parseFloat(prompt("masukan jumlah bonus : $"));
+            let deductions = parseFloat(prompt("Masukan Jumlah Potongan : $"));
+
+            let netSalary = basicSalary + bonus - deductions;
+            document.getElementById("tb6").innerHTML ="Gaji Dasar Karyawan: $" + basicSalary.toFixed(2);
+            document.getElementById("tb7").innerHTML ="Bonus: $" + bonus.toFixed(2) ;
+            document.getElementById("tb8").innerHTML ="Potongan: $" + deductions.toFixed(2);
+            document.getElementById("tb9").innerHTML ="Gaji bersih: $" + netSalary.toFixed(2) ;
+            
+
+
+
+        }
+       
+
+
+    </script>
+</body>
+</html>
